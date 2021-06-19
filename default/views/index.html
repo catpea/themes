@@ -17,6 +17,23 @@
     </div>
   <% } %>
 
+ <% if(alert && pagination.pageFirst){ %>
+   <div class="container">
+     <div class="row">
+       <div class="col p-4">
+         <div style="background-color: transparent;" class="card text-info border-warning mb-3">
+           <div class="card-body">
+             <p class="card-text small"><i class="bi bi-receipt align-text-bottom text-warning"></i>
+               <%= alert %>
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ <% } %>
+
+
   <main class="container">
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
