@@ -38,10 +38,19 @@
               <a name="<%= post.id %>"></a>
               <div class="card bg-dark text-warning mb-3 border border-2 border-start border-warning border-top-0 border-bottom-0 border-end-0" style="">
                 <div class="card-body">
+                  <% if(post.isUpdated){ %><span class="badge bg-info text-dark">Updated!</span><% } %>
                   <a href="/read/<%= post.bookName %>/<%= post.number %>" class="d-block text-reset text-decoration-none mb-0"><h4 class="card-title mb-0"><div class="text-secondary" style="font-size: .8rem;">#<%= post.number %>:</div> <span class="fw-light"><%= post.title %></span></h4></a>
+
+
                   <div class="small fw-light mb-2">
-                    <%= post.timestamp %>
+                    <% if(post.isUpdated){ %>
+                      Updated <%= post.timestamp %> &middot; Created <%= post.createdTimestamp %>
+                      <% } else { %>
+                       Created <%= post.timestamp %>
+                    <% } %>
                   </div>
+
+
                   <div class="text-muted small">
                     <%= post.text.split(/:|\.|,/).slice(0,6) + '...' %>
                   </div>

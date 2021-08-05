@@ -70,8 +70,15 @@
 
         </div>
         <div class="col-12 col-md-7 col-lg-9 text-light pb-3">
+          <% if(post.isUpdated){ %><span class="badge bg-info text-dark">Updated!</span><% } %>
           <h5 class="mb-1"><a href="/read/<%= post.bookName %>/<%= post.number %>" class="text-light text-decoration-none">#<%= post.number %>: <%= post.title %></a></h5>
-          <small class="mb-3 d-inline-block text-muted"><%= post.timestamp %></small>
+          <small class="mb-3 d-inline-block text-muted">
+            <% if(post.isUpdated){ %>
+              Updated <%= post.timestamp %> &middot; Created <%= post.createdTimestamp %>
+              <% } else { %>
+               Created <%= post.timestamp %>
+            <% } %>
+          </small>
           <p class="mb-1 small fw-light"><%= post.text %></p>
 
           <div class="py-2">
