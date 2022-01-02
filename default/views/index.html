@@ -44,7 +44,10 @@
            <% if(post.notice){ %>
              <div class="card-body">
                <span class="badge bg-info text-dark">Updated!</span>
-               <a href="/read/<%= post.bookName %>/<%= post.number %>" class="text-decoration-none"><h5 class="card-title text-warning"><%= post.bookTitle %> #<%= post.number %>: <%= post.title %>  <% if(post.mxyzptlk){ %>  UPDATE!  <% } %></h5></a>
+               <a href="/read/<%= post.bookName %>/<%= post.number %>" class="text-decoration-none">
+                 <h4 class="card-title text-warning"><%= post.title %></h4>
+                 <h6 class="card-title text-muted"><%= post.bookTitle %> #<%= post.number %></h6>
+               </a>
                <div role="alert" class="alert alert-info d-flex align-items-start">
                  <i class="bi fs-2 bi-info-circle me-3"></i>
                  <div class="pt-2">
@@ -55,7 +58,10 @@
            <% } else { %>
              <div class="card-body">
                <% if(post.isUpdated){ %><span class="badge bg-info text-dark">Updated!</span><% } %>
-               <a href="/read/<%= post.bookName %>/<%= post.number %>" class="text-decoration-none"><h5 class="card-title text-warning"><%= post.bookTitle %> #<%= post.number %>: <%= post.title %>  <% if(post.mxyzptlk){ %>  UPDATE!  <% } %></h5></a>
+               <a href="/read/<%= post.bookName %>/<%= post.number %>" class="text-decoration-none">
+                 <h4 class="card-title text-warning"><%= post.title %></h4>
+                 <h6 class="card-title text-muted"><%= post.bookTitle %> #<%= post.number %></h6>
+               </a>
                 <p class="card-text small"><%= post.text %></p>
              </div>
            <% } %>
