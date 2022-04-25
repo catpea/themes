@@ -11,7 +11,9 @@
 
     <div class="row">
       <div class="col">
-       <div class="card bg-dark text-white shadow mb-5">
+
+
+       <!-- <div class="card bg-dark text-white shadow mb-5">
 
          <div class="card-body">
            <h1 class="card-title text-warning">#<%= post.number %>: <%= post.title %></h1>
@@ -31,7 +33,30 @@
          </div>
          <% } %>
 
+       </div> -->
+
+
+
+       <div class="card bg-dark text-white shadow mb-5">
+
+         <div class="card-body">
+           <h2 class="card-title text-warning">#<%= post.number %></h2>
+           <h1 class="card-title text-warning"><%= post.title %></h1>
+           <p class="card-text text-warning small"><%= post.timestamp %></p>
+         </div>
+
+         <div class="card-body">
+           <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle align-text-bottom"></i> Listen</a><% } %>
+           <% if(post.print){ %><a href="/print/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-info"><i class="bi bi-printer align-text-bottom text-warning"></i> Print</a><% } %>
+         </div>
+
        </div>
+
+
+
+
+
+
       </div>
     </div>
 
@@ -47,9 +72,26 @@
       <% if(post.image){ %>
         <div class="card bg-dark text-white shadow mb-5 sticky-md-top" style="top: 1rem;">
           <img src="/image/md-<%= post.image %>" class="card-img-top" alt="<%= post.title %>">
-          <div class="card-footer text-muted small">
+
+          <!-- <div class="card-body text-muted small">
             <%= post.title %>
+          </div> -->
+
+          <% if(post.artwork){ %>
+
+          <div class="card-footer text-muted small">
+          <a href="<%= post.artwork %>" class="text-muted text-decoration-none small"> Artwork Credit</span></a>
+
+          <% if(post.artworks){ %>
+            <% for(let i = 0; i<post.artworks.length; i++){ %>
+              <a href="<%= post.artworks[i] %>" class="text-muted text-decoration-none small"> #<%= i+2 %></span></a>
+            <% } %>
+          <% } %>
+
           </div>
+
+          <% } %>
+
         </div>
       <% } %>
      </div>
@@ -57,7 +99,7 @@
 
     </div>
 
-    <% if(post.audio){ %>
+    <!-- <% if(post.audio){ %>
     <div class="row">
       <div class="col">
        <div class="card bg-dark text-white shadow mb-5">
@@ -69,7 +111,30 @@
        </div>
       </div>
     </div>
-    <% } %>
+    <% } %> -->
+
+    <div class="row">
+      <div class="col">
+
+        <div class="card bg-dark text-white shadow mb-5">
+
+          <div class="card-body">
+            <p class="card-text text-warning">#<%= post.number %>: <%= post.title %></p>
+            <p class="card-text text-warning small"><%= post.timestamp %></p>
+          </div>
+
+          <div class="card-body">
+            <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle align-text-bottom"></i> Listen</a><% } %>
+            <% if(post.print){ %><a href="/print/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-info"><i class="bi bi-printer align-text-bottom text-warning"></i> Print</a><% } %>
+          </div>
+
+        </div>
+
+  </div>
+</div>
+
+
+
 
     <% if(post.links.length){ %>
       <div class="row">
@@ -77,7 +142,7 @@
         <div class="col">
          <div class="card bg-dark text-white shadow mb-5">
            <div class="card-body">
-             <h2 class="card-title text-warning">References</h2>
+             <h2 class="card-title text-warning">Links</h2>
              <ul class="list-group list-group-flush">
                <% post.links.forEach(function(link,index){ %>
                  <li class="list-group-item bg-dark">
@@ -91,7 +156,9 @@
       </div>
     <% } %>
 
-    <% if(post.artwork){ %>
+
+
+    <!-- <% if(post.artwork){ %>
       <div class="row">
         <a name="references"></a>
         <div class="col">
@@ -106,7 +173,7 @@
          </div>
         </div>
       </div>
-    <% } %>
+    <% } %> -->
 
 
 
