@@ -69,8 +69,8 @@
            <% } %>
 
            <div class="card-body">
-             <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle align-text-bottom"></i> Listen</a><% } %>
-             <a href="/read/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-warning"><i class="bi bi-eye align-text-bottom"></i> View</a>
+             <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle"></i> Listen</a><% } %>
+             <a href="/read/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-warning"><i class="bi bi-eye"></i> View</a>
               <% if(post.links.length){ %><a href="/read/<%= post.bookName %>/<%= post.number %>#references" title="Contains Links or References" class="btn btn-outline-info float-end"><%= post.links.length %> <%= post.links.length==1?'Link':'Links' %></a><% } %>
            </div>
 
@@ -121,7 +121,7 @@
         <div class="col p-1">
           <div style="background-color: transparent;" class="card text-info border-warning mb-3">
             <div class="card-body">
-              <p class="card-text small"><i class="bi bi-receipt align-text-bottom text-warning"></i>
+              <p class="card-text small"><i class="bi bi-receipt text-warning"></i>
                 <%- alert %>
               </p>
             </div>
@@ -136,12 +136,12 @@
     <div class="container mb-5">
       <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <p class="text-info">
-          <small><i class="bi bi-info-circle-fill align-text-bottom"></i> Home Page shows a mix of all entries from all books, latest first.</small>
+          <small><i class="bi bi-info-circle-fill"></i> Home Page shows a mix of all entries from all books, latest first.</small>
         </p>
         <p class="text-info">
           <small>
             <!--
-              <i class="bi bi-info-circle-fill align-text-bottom"></i>
+              <i class="bi bi-info-circle-fill"></i>
               <span class="fw-light">
               Service or hosting interruptions will be resolved in under 24 hours.
               </span>

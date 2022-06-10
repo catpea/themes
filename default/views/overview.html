@@ -15,18 +15,8 @@
 
     <main class="container">
       <div class="row">
-
-
-        <div class="col-xs-12 d-md-none mb-3">
-
-            <% books.forEach(function(book,index){ %>
-              <a href="#<%= book.name %>" class="btn btn-outline-warning btn-small mb-2 d-block"><i class="bi bi-<%= book.icon %>"></i> <%= book.title %></a>
-            <% }); %>
-
-        </div>
-
         <div class="col-12 col-md-10 col-lg-9">
-          <% books.forEach(function(book, index){ %>
+          <% books.forEach(function(book,index){ %>
             <a name="<%= book.name %>"></a>
             <div class="card bg-warning text-dark mb-4" style="">
               <div class="card-body">
@@ -41,43 +31,56 @@
                   <li class="list-group-item bg-dark"><a class="text-warning" href="<%= entry.href %>"><%= entry.name %> <i class="bi bi-link-45deg text-warning"></i></a></li>
                 <% }) %>
 
-                <li class="list-group-item bg-dark"><a class="text-warning" href="#top"><i class="bi bi-arrow-90deg-up"></i> Top</a></li>
               </ul>
             </div>
 
             <% data[book.name].story.posts.forEach(function(post,index){ %>
               <a name="<%= post.id %>"></a>
               <div class="card bg-dark text-warning mb-3 border border-2 border-start border-warning border-top-0 border-bottom-0 border-end-0" style="">
-
                 <div class="card-body">
                   <% if(post.isUpdated){ %><span class="badge bg-info text-dark">Updated!</span><% } %>
-                  <a href="/read/<%= post.bookName %>/<%= post.number %>" class="d-block text-reset text-decoration-none mb-0"><h4 class="card-title mb-0"><div class="text-secondary" style="font-size: .8rem;"><%= book.title %> #<%= post.number %>:</div> <span class="fw-light"><%= post.title %></span></h4></a>
+                  <a href="/read/<%= post.bookName %>/<%= post.number %>" class="d-block text-reset text-decoration-none mb-0"><h4 class="card-title mb-0"><div class="text-secondary" style="font-size: .8rem;">#<%= post.number %>:</div> <span class="fw-light"><%= post.title %></span></h4></a>
+
+
                   <div class="small fw-light mb-2">
                     <% if(post.isUpdated){ %>
-                      <span class="small">Updated <%= post.timestamp %> &middot; Created <%= post.createdTimestamp %></span>
+                      Updated <%= post.timestamp %> &middot; Created <%= post.createdTimestamp %>
                       <% } else { %>
-                       <span class="small">Created <%= post.timestamp %></span>
+                       Created <%= post.timestamp %>
                     <% } %>
                   </div>
+
+
+                  <div class="text-muted small">
+                    <%= post.text.split(/:|\.|,/).slice(0,6) + '...' %>
+                  </div>
+                </div>
+                <% if(post.links.length){ %>
+                  <ul class="list-group list-group-flush">
+                    <% post.links.forEach(function(link,index){ %>
+                      <li class="list-group-item bg-dark">
+                        <a href="<%= link.url %>" class="text-muted text-decoration-none small"><span class="text-secondary"><%= index+1 %>.</span> <span class="text-warning"><%= link.title %></span></a> <small class="text-muted">(<%= link.hostname %>)</small>
+                      </li>
+                    <% }); %>
+                  </ul>
+                <% } %>
+                <div class="card-body">
                   <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="card-link text-reset text-decoration-none"><i class="bi bi-play-circle"></i> Listen</a><% } %>
                   <a href="/read/<%= post.bookName %>/<%= post.number %>" class="card-link text-reset text-decoration-none"><i class="bi bi-eye"></i> View</a>
                 </div>
-
-
               </div>
             <% }); %>
           <% }) %>
         </div>
-
         <div class="col-md-2 col-lg-3 d-none d-md-block">
           <div class="sticky-sm-top" style="top: 3rem;">
             <% books.forEach(function(book,index){ %>
-              <a href="#<%= book.name %>" title="<%= book.title %>" class="btn btn-outline-warning btn-small mb-2 d-block"><i class="bi bi-<%= book.icon %>"></i> <span class="d-none d-lg-inline"><%= book.title %></span></a>
+              <a href="#<%= book.name %>" class="btn btn-outline-warning btn-small mb-2 d-block"><i class="bi bi-<%= book.icon %>"></i> <span class="d-none d-lg-inline"><%= book.title %></span></a>
             <% }); %>
             <a href="#top" class="btn btn-outline-warning btn-small mb-2 d-block"><i class="bi bi-arrow-90deg-up"></i> <span class="d-none d-lg-inline">Top</span></a>
+
           </div>
         </div>
-
       </div>
     </main><!-- /.container -->
 

@@ -15,7 +15,7 @@
           <%= pageDescription %>
         </p>
         <p class="text-info">
-          <small><i class="bi bi-info-circle-fill align-text-bottom"></i> <%= bookTitle %> Table Of Contents, <% if(currentSort == 'story'){ %> entries ordered to tell a story. <% }else{ %> showing latest entries first. <% } %></small>
+          <small><i class="bi bi-info-circle-fill"></i> <%= bookTitle %> Table Of Contents, <% if(currentSort == 'story'){ %> entries ordered to tell a story. <% }else{ %> showing latest entries first. <% } %></small>
         </p>
       </div>
     </div>
@@ -30,15 +30,15 @@
        <div class="col-12 my-2 bg-dark rounded shadow">
          <ul class="nav nav-pills justify-content-end">
            <li class="nav-item">
-             <a class="nav-link text-warning" aria-current="page" href="/book/<%= bookName %>/<%= defaultSort %>"><i class="bi bi-book align-text-bottom"></i> Show Book Home</a>
+             <a class="nav-link text-warning" aria-current="page" href="/book/<%= bookName %>/<%= defaultSort %>"><i class="bi bi-book"></i> Show Book Home</a>
            </li>
             <% if(currentSort == 'story'){ %>
             <li class="nav-item">
-              <a class="nav-link text-warning" href="/book/<%= bookName %>/toc/latest"><i class="bi bi-sort-numeric-down-alt align-text-bottom"></i> Show Latest First</a>
+              <a class="nav-link text-warning" href="/book/<%= bookName %>/toc/latest"><i class="bi bi-sort-numeric-down-alt"></i> Show Latest First</a>
             </li>
             <% }else{ %>
             <li class="nav-item">
-              <a class="nav-link text-warning" href="/book/<%= bookName %>/toc/story"><i class="bi bi-sort-numeric-down align-text-bottom"></i> Show Default Order</a>
+              <a class="nav-link text-warning" href="/book/<%= bookName %>/toc/story"><i class="bi bi-sort-numeric-down"></i> Show Default Order</a>
             </li>
             <% } %>
           </ul>

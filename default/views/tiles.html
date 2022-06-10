@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.html', {}); %>
+  </head>
+  <body>
+
+  <%- include('partials/nav.html', {}); %>
+
+
+
+
+
+
+
+    <main class="container">
+      <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-9 g-4">
+
+
+
+             <% [...data.all.latest.posts].sort(function(a,b){return new Date(b.date) - new Date(a.date)}).forEach(function(post,index){ %>
+               <% if(post.image){ %>
+
+                 <div class="col">
+                 <div class="card bg-dark text-white">
+                   <a href="/read/<%= post.bookName %>/<%= post.number %>">
+                     <img src="/image/sm-<%= post.image %>" class="card-img" title="<%= post.bookTitle %> #<%= post.number %>: <%= post.title %>">
+                   </a>
+                 </div>
+               </div>
+
+               <% } %>
+            <% }); %>
+
+
+
+
+
+      </div><!-- row -->
+    </main><!-- /.container -->
+
+  <%- include('partials/footer.html', {}); %>
+  <%- include('partials/foot.html', {}); %>
+
+  </body>
+</html>
