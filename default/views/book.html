@@ -81,7 +81,7 @@
            <% } %>
 
            <div class="card-body">
-             <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle"></i> Listen</a><% } %>
+             <% if(post.audio){ %><a href="https://catpea.org/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle"></i> Listen</a><% } %>
              <a href="/read/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-warning"><i class="bi bi-eye"></i> View</a>
               <% if(post.links.length){ %><a href="/read/<%= post.bookName %>/<%= post.number %>#references" title="Contains Links or References" class="btn btn-outline-info float-end"><%= post.links.length %> <%= post.links.length==1?'Link':'Links' %></a><% } %>
            </div>

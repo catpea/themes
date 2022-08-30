@@ -12,13 +12,13 @@
        <div class="col">
 
 
-         <a href="#alert" class="btn btn-outline-info btn-sm position-relative">
+         <a href="#alert" class="btn btn-outline-warning btn-sm position-relative">
            <% if(alertTitle){ %>
-             <i class="bi bi-info-circle-fill"></i>  <%= alertTitle %>
+             <i class="bi bi-warning-circle-fill"></i>  <%= alertTitle %>
           <% } else { %>
-            <i class="bi bi-info-circle-fill"></i>  Notice
+            <i class="bi bi-warning-circle-fill"></i>  Notice
           <% } %>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info text-dark">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
             Note
             <span class="visually-hidden">Alert Message</span>
           </span>
@@ -28,6 +28,11 @@
      </div>
    </div>
  <% } %>
+
+
+
+
+  <!-- good place for alert -->
 
 
 
@@ -69,7 +74,7 @@
            <% } %>
 
            <div class="card-body">
-             <% if(post.audio){ %><a href="/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle"></i> Listen</a><% } %>
+             <% if(post.audio){ %><a href="https://catpea.org/audio/<%= post.audio %>" class="btn btn-warning"><i class="bi bi-play-circle"></i> Listen</a><% } %>
              <a href="/read/<%= post.bookName %>/<%= post.number %>" class="btn btn-outline-warning"><i class="bi bi-eye"></i> View</a>
               <% if(post.links.length){ %><a href="/read/<%= post.bookName %>/<%= post.number %>#references" title="Contains Links or References" class="btn btn-outline-info float-end"><%= post.links.length %> <%= post.links.length==1?'Link':'Links' %></a><% } %>
            </div>
@@ -114,6 +119,7 @@
 
 
 
+  <!-- good place for alert -->
   <% if(alert && pagination.pageFirst){ %>
     <a name="alert"></a>
     <div class="container">
@@ -130,7 +136,6 @@
       </div>
     </div>
   <% } %>
-
 
   <% if(pagination.pageFirst){ %>
     <div class="container mb-5">
