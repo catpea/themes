@@ -9,18 +9,17 @@
  <% if(alert && pagination.pageFirst){ %>
    <div class="container mb-5">
      <div class="row">
-       <div class="col">
+       <div class="col px-3">
 
 
-         <a href="#alert" class="btn btn-outline-warning btn-sm position-relative">
+         <a href="#alert" class="btn btn-outline-info btn-sm position-relative">
            <% if(alertTitle){ %>
-             <i class="bi bi-warning-circle-fill"></i>  <%= alertTitle %>
+             <i class="bi bi-info-circle-fill"></i>  <%- alertTitle %>
           <% } else { %>
-            <i class="bi bi-warning-circle-fill"></i>  Notice
+            <i class="bi bi-info-circle-fill"></i>  Notice
           <% } %>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info text-dark">
             Note
-            <span class="visually-hidden">Alert Message</span>
           </span>
         </a>
 
